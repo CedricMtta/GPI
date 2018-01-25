@@ -1,0 +1,37 @@
+#------#
+# Java #
+#------#
+
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+#---------#
+# Eclipse #
+#---------#
+
+.metadata
+.settings/
+/bin/
+build/
+.classpath
+.project
+*.md.html
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+local.properties
+.loadpath
+.externalToolBuilders/
+*.launch
+.factorypath
+*.tmp
+*.bak
+*.swp
+*~.nib
+/target/

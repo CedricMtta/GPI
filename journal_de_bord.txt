@@ -1,0 +1,14 @@
+Voici la liste des tâches effectuées sur ce projet :
+1. Rédaction du JSON de Swagger
+2. Génération du server Spring à partir du JSON sur swagger generator
+3. Modification du POM.xml pour intégrer une stack proche de celle du prof
+4. Modification du POM.xml pour intégrer SpringData JPA, configuration de H2 en parralèle pour que le projet démarre
+5. Ajout du Jenkinsfile et du sonar.properties identiques à ceux du prof
+6. Renommages des classes crées par swagger, correction des routes
+7. Mock de la route GET api/images
+8. JpaRepository de la classe image
+9. Intégration de  flyway et la table Image
+
+A faire :
+Mapper la classe image avec Hibernate
+Implémenter le fonctionnement des contrôleurs
