@@ -24,74 +24,73 @@ import io.swagger.model.Image;
 
 public interface ImageApi {
 
-    @ApiOperation(value = "createImage", notes = "", response = Image.class, tags={ "image-resource", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Image.class),
-        @ApiResponse(code = 201, message = "Created", response = Void.class),
-        @ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
-        @ApiResponse(code = 403, message = "Forbidden", response = Void.class),
-        @ApiResponse(code = 404, message = "Not Found", response = Void.class) })
-    
-    @RequestMapping(value = "/api/images",
-        produces = { "*/*" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.POST)
-    ResponseEntity<Image> createImageUsingPOST(@ApiParam(value = "image" ,required=true )  @Valid @RequestBody Image image);
+	@ApiOperation(value = "createImage", notes = "", response = Image.class, tags={ "image-resource", })
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK", response = Image.class),
+			@ApiResponse(code = 201, message = "Created", response = Void.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
+
+	@RequestMapping(value = "/api/images",
+	produces = { "*/*" }, 
+	consumes = { "application/json" },
+	method = RequestMethod.POST)
+	ResponseEntity<Image> createImageUsingPOST(@ApiParam(value = "image" ,required=true )  @Valid @RequestBody Image image);
 
 
-    @ApiOperation(value = "deleteImage", notes = "", response = Void.class, tags={ "image-resource", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Void.class),
-        @ApiResponse(code = 204, message = "No Content", response = Void.class),
-        @ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
-        @ApiResponse(code = 403, message = "Forbidden", response = Void.class) })
-    
-    @RequestMapping(value = "/api/images/{id}",
-        produces = { "*/*" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.DELETE)
-    ResponseEntity<Void> deleteImageUsingDELETE(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
+	@ApiOperation(value = "deleteImage", notes = "", response = Void.class, tags={ "image-resource", })
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK", response = Void.class),
+			@ApiResponse(code = 204, message = "No Content", response = Void.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Void.class) })
+
+	@RequestMapping(value = "/api/images/{id}",
+	produces = { "*/*" }, 
+	consumes = { "application/json" },
+	method = RequestMethod.DELETE)
+	ResponseEntity<Void> deleteImageUsingDELETE(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
 
 
-    @ApiOperation(value = "getAllImages", notes = "", response = Image.class, responseContainer = "List", tags={ "image-resource", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Image.class, responseContainer = "List"),
-        @ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
-        @ApiResponse(code = 403, message = "Forbidden", response = Void.class),
-        @ApiResponse(code = 404, message = "Not Found", response = Void.class) })
-    
-    @RequestMapping(value = "/api/images",
-        produces = { "application/json" },
-        method = RequestMethod.GET)
-    ResponseEntity<List<Image>> getAllImagesUsingGET();
+	@ApiOperation(value = "getAllImages", notes = "", response = Image.class, responseContainer = "List", tags={ "image-resource", })
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK", response = Image.class, responseContainer = "List"),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
+
+	@RequestMapping(value = "/api/images",
+	produces = { "application/json" },
+	method = RequestMethod.GET)
+	ResponseEntity<List<Image>> getAllImagesUsingGET();
 
 
-    @ApiOperation(value = "getImage", notes = "", response = Image.class, tags={ "image-resource", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Image.class),
-        @ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
-        @ApiResponse(code = 403, message = "Forbidden", response = Void.class),
-        @ApiResponse(code = 404, message = "Not Found", response = Void.class) })
-    
-    @RequestMapping(value = "/api/images/{id}",
-        produces = { "*/*" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.GET)
-    ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
+	@ApiOperation(value = "getImage", notes = "", response = Image.class, tags={ "image-resource", })
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK", response = Image.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
+
+	@RequestMapping(value = "/api/images/{id}",
+	produces = { "application/json" },
+	method = RequestMethod.GET)
+	ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
 
 
-    @ApiOperation(value = "updateImage", notes = "", response = Image.class, tags={ "image-resource", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Image.class),
-        @ApiResponse(code = 201, message = "Created", response = Void.class),
-        @ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
-        @ApiResponse(code = 403, message = "Forbidden", response = Void.class),
-        @ApiResponse(code = 404, message = "Not Found", response = Void.class) })
-    
-    @RequestMapping(value = "/api/images/{id}",
-        produces = { "*/*" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.PUT)
-    ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
+	@ApiOperation(value = "updateImage", notes = "", response = Image.class, tags={ "image-resource", })
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK", response = Image.class),
+			@ApiResponse(code = 201, message = "Created", response = Void.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
+
+	@RequestMapping(value = "/api/images/{id}",
+	produces = { "*/*" }, 
+	consumes = { "application/json" },
+	method = RequestMethod.PUT)
+	ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
 
 }
