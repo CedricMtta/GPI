@@ -25,11 +25,13 @@ public class ImageApiController implements ImageApi {
 
     public ResponseEntity<Image> createImageUsingPOST(@ApiParam(value = "image" ,required=true )  @Valid @RequestBody Image image) {
         // do some magic!
+    	repo.save(image);
         return new ResponseEntity<Image>(HttpStatus.OK);
     }
 
     public ResponseEntity<Void> deleteImageUsingDELETE(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
         // do some magic!
+    	repo.delete(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 

@@ -33,9 +33,8 @@ public interface ImageApi {
 			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
 
 	@RequestMapping(value = "/api/images",
-	produces = { "*/*" }, 
-	consumes = { "application/json" },
-	method = RequestMethod.POST)
+			produces = { "application/json" },
+			method = RequestMethod.POST)
 	ResponseEntity<Image> createImageUsingPOST(@ApiParam(value = "image" ,required=true )  @Valid @RequestBody Image image);
 
 
@@ -77,6 +76,7 @@ public interface ImageApi {
 	produces = { "application/json" },
 	method = RequestMethod.GET)
 	ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
+	
 
 
 	@ApiOperation(value = "updateImage", notes = "", response = Image.class, tags={ "image-resource", })
