@@ -91,6 +91,6 @@ public interface ImageApi {
 	produces = { "*/*" }, 
 	consumes = { "application/json" },
 	method = RequestMethod.PUT)
-	ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
+	ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id, @Valid @RequestBody Image image);
 
 }

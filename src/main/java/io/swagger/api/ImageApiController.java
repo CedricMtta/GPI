@@ -44,13 +44,14 @@ public class ImageApiController implements ImageApi {
     public ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
         // do some magic!
     	Image image = new Image();
-    	image = repo.findOne(id);
-    	
+    	image = repo.findOne(id);	
         return new ResponseEntity<Image>(image,HttpStatus.OK);
     }
 
-    public ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
+    public ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id, @Valid @RequestBody Image image) {
         // do some magic!
+    	Image img = repo.findOne(id);
+    	img = repo.saveAndFlush(image);
         return new ResponseEntity<Image>(HttpStatus.OK);
     }
 
