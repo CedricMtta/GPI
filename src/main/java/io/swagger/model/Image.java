@@ -2,10 +2,10 @@ package io.swagger.model;
 
 import java.util.Objects;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.Valid;
-
-import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -35,9 +35,9 @@ public class Image   {
 	@Column(name="nom_image")
 	private String nomimage = null;
 
-	@JsonProperty("nompersonne")
-	@Column(name="nom_personne")
-	private String nompersonne = null;
+	@JsonProperty("idutilisateur")
+	@Column(name="id_utilisateur")
+	private Long id_utilisateur = null;
 
 	public Image chemin(String chemin) {
 		this.chemin = chemin;
@@ -120,24 +120,24 @@ public class Image   {
 		this.nomimage = nomimage;
 	}
 
-	public Image nompersonne(String nompersonne) {
-		this.nompersonne = nompersonne;
+	public Image idutilisateur(Long id_utilisateur) {
+		this.id_utilisateur = id_utilisateur;
 		return this;
 	}
 
 	/**
-	 * Get nompersonne
-	 * @return nompersonne
+	 * Get idutilisateur
+	 * @return idutilisateur
 	 **/
 	@ApiModelProperty(value = "")
 
 
-	public String getNompersonne() {
-		return nompersonne;
+	public Long getIdUtilisateur() {
+		return id_utilisateur;
 	}
 
-	public void setNompersonne(String nompersonne) {
-		this.nompersonne = nompersonne;
+	public void setIdUtilisateur(Long id_utilisateur) {
+		this.id_utilisateur = id_utilisateur;
 	}
 
 
@@ -154,12 +154,12 @@ public class Image   {
 				Objects.equals(this.date, image.date) &&
 				Objects.equals(this.id, image.id) &&
 				Objects.equals(this.nomimage, image.nomimage) &&
-				Objects.equals(this.nompersonne, image.nompersonne);
+				Objects.equals(this.id_utilisateur, image.id_utilisateur);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(chemin, date, id, nomimage, nompersonne);
+		return Objects.hash(chemin, date, id, nomimage, id_utilisateur);
 	}
 
 	@Override
@@ -171,7 +171,7 @@ public class Image   {
 		sb.append("    date: ").append(toIndentedString(date)).append("\n");
 		sb.append("    id: ").append(toIndentedString(id)).append("\n");
 		sb.append("    nomimage: ").append(toIndentedString(nomimage)).append("\n");
-		sb.append("    nompersonne: ").append(toIndentedString(nompersonne)).append("\n");
+		sb.append("    nompersonne: ").append(toIndentedString(id_utilisateur)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
