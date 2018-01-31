@@ -46,8 +46,7 @@ public interface ImageApi {
 			@ApiResponse(code = 403, message = "Forbidden", response = Void.class) })
 
 	@RequestMapping(value = "/api/images/{id}",
-	produces = { "*/*" }, 
-	consumes = { "application/json" },
+	produces = { "application/json" }, 
 	method = RequestMethod.DELETE)
 	ResponseEntity<Void> deleteImageUsingDELETE(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
 
