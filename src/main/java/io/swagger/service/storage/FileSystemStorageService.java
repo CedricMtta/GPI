@@ -23,11 +23,11 @@ public class FileSystemStorageService implements StorageService {
 	 * Donc, si dans le code, on met private final path root location = paths.get(this.location)
 	 * On a erreur : nul.*/
 	/*
-	@Value("${gelog.path.uploadedFiles}")
+	@Value("${gpi.path.uploadedFiles}")
     private String location;
 	
 	private Path rootLocation = Paths.get(this.location);
-    //private final Path rootLocation = Paths.get("D:/GeLog_Files/Uploaded/");
+    //private final Path rootLocation = Paths.get("C:/GPI_files/");
 	*/
 	
 	private Path rootLocation;
