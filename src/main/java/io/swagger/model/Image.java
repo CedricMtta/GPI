@@ -35,7 +35,7 @@ public class Image   {
 	@Column(name="nom_image")
 	private String nomimage = null;
 
-	@JsonProperty("idutilisateur")
+	@JsonProperty("idUtilisateur")
 	@Column(name="id_utilisateur")
 	private Long id_utilisateur = null;
 
@@ -171,7 +171,7 @@ public class Image   {
 		sb.append("    date: ").append(toIndentedString(date)).append("\n");
 		sb.append("    id: ").append(toIndentedString(id)).append("\n");
 		sb.append("    nomimage: ").append(toIndentedString(nomimage)).append("\n");
-		sb.append("    nompersonne: ").append(toIndentedString(id_utilisateur)).append("\n");
+		sb.append("    idutilisateur: ").append(toIndentedString(id_utilisateur)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

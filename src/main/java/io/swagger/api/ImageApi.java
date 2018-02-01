@@ -87,7 +87,7 @@ public interface ImageApi {
 			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
 
 	@RequestMapping(value = "/api/images/{id}",
-	produces = { "*/*" }, 
+	produces = { "application/json" }, 
 	consumes = { "application/json" },
 	method = RequestMethod.PUT)
 	ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id, @Valid @RequestBody Image image);

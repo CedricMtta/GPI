@@ -125,6 +125,28 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.6</version>
+				<configuration>
+					<apiSources>
+						<apiSource>
+							<springmvc>true</springmvc>
+							<locations>
+								<location>io.swagger.api</location>
+							</locations>
+							<info>
+								<title>GPI</title>
+								<version>${project.version}</version>
+								<description>Gestion de projet Images</description>
+							</info>
+							<outputFormats>yaml</outputFormats>
+							<swaggerDirectory>target/swagger-ui</swaggerDirectory>
+						</apiSource>
+					</apiSources>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
