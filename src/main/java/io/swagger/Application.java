@@ -15,14 +15,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-/**
- *
- * @author ck
- */
 
-@SpringBootApplication
 @EnableSwagger2
-// tenter https://stackoverflow.com/questions/28664064/spring-boot-not-an-managed-type
+@ComponentScan
+@EnableJpaRepositories
+@Configuration
+@EnableAutoConfiguration
+@SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
 	@Override
