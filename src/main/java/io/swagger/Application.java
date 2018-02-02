@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.swagger.application;
+package io.swagger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,16 +20,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author ck
  */
 
-
-@EnableSwagger2
-@ComponentScan(basePackages = { "com.pdy.fac.demorestback"})
-@EntityScan(basePackages = "com.pdy.fac.demorestback.*.repository.entities")
-@Configuration
-@EnableJpaRepositories(
-		basePackages = {"com.pdy.fac.demorestback.*.repository"}		
-		)
-@EnableAutoConfiguration
 @SpringBootApplication
+@EnableSwagger2
 // tenter https://stackoverflow.com/questions/28664064/spring-boot-not-an-managed-type
 public class Application extends SpringBootServletInitializer {
 

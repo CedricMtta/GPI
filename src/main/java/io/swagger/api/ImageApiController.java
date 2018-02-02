@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.ApiParam;
 import io.swagger.model.Image;
 import io.swagger.repository.ImageRepository;
+import io.swagger.service.image.ImageService;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-01-16T20:34:37.063Z")
 
 @RestController
@@ -22,6 +23,9 @@ public class ImageApiController implements ImageApi {
 	
 	@Autowired
 	private ImageRepository repo;
+	
+	@Autowired
+	private ImageService imgServ;
 
     public ResponseEntity<Image> createImageUsingPOST(@ApiParam(value = "image" ,required=true )  @Valid @RequestBody Image image) {
         // do some magic!
