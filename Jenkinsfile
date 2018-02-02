@@ -65,7 +65,7 @@
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'tomcatdeploy', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 					
 					// redéploiement en utilisant les identifiants et les paramètres de conf
-					sh 'curl -T "${warPath}/Commentapi.war" "http://$USERNAME:$PASSWORD@${deployUrl}/manager/text/deploy?path=/${deployPath}&update=true"'
+					sh 'curl -T "${warPath}/images.war" "http://$USERNAME:$PASSWORD@${deployUrl}/manager/text/deploy?path=/${deployPath}&update=true"'
 					
                 }
             }
