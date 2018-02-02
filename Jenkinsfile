@@ -91,29 +91,6 @@ pipeline {
                 }
             }
         }
-        
-        stage('Déploiement de la documentation'){
-            parallel {
-                
-                stage('Deploy javadoc'){
-                    steps{
-						sh "mkdir -p ${publicApacheDoc}/GestionProjetImage-javadoc"
-                        sh "cp -R target/site/apidocs/* ${publicApacheDoc}/GestionProjetImage-javadoc"
-                    }
-                }
-            
-                stage('Publish asciidoc'){
-                    steps{
-                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/generated-docs', reportFiles: 'GestionProjetImage.html', reportName: 'AsciiDoc', reportTitles: 'documentation'])
-                    }
-                }
-                stage('Publish javadoc'){
-                    steps{
-                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/apidocs', reportFiles: 'index.html', reportName: 'JavaDoc', reportTitles: 'JavaDoc'])
-                    }
-                }
-            }
-        }
     }
     
     
