@@ -25,15 +25,6 @@ pipeline {
 						env.deployUrl = "$tomcatConf.tomcat.deploy.url"
 					}
 				}
-				
-				// récupération du fichier de configuration d'apache
-				configFileProvider([configFile(fileId:'apache-conf', variable: 'apacheConfFile')]) {
-					script{
-						def apacheConf = readJSON(text: readFile(file: apacheConfFile))
-						env.publicApacheRoot = "$apacheConf.publichtml.root"
-						env.publicApacheDoc = "$apacheConf.publichtml.doc"
-					}
-				}
 			}
 		}
 		
