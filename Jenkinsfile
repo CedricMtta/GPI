@@ -101,7 +101,7 @@ pipeline {
 			
 			
 			// enregistre toujours les rapports JSON pour le build (pour voir les échecs)
-			cucumber '**/*.json'
+			//cucumber '**/*.json'
 		
 			// enregistre les rapports HTML (pour voir les échecs)
 			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/cucumber', reportFiles: 'index.html', reportName: 'Rapports cucumber', reportTitles: 'Rapport de tests cucumbers'])
