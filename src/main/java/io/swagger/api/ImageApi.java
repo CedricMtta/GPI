@@ -104,5 +104,5 @@ public interface ImageApi {
 	
 	@RequestMapping(value = "/api/images{id}/uploadImage",
 			method = RequestMethod.POST)
-	ResponseEntity<Void> uploadDects(@PathVariable("id") Long id,  @RequestParam("file") MultipartFile file);
+	ResponseEntity<Void> uploadImage(@PathVariable("id") Long id,  @RequestParam("file") MultipartFile file);
 }

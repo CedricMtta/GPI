@@ -41,6 +41,7 @@ public class ImageApiController implements ImageApi {
     }
 
     public ResponseEntity<List<Image>> getAllImagesUsingGET() {
+    	System.out.println("Appel getAll");
     	List<Image> images = new ArrayList<Image>();    	
     	images = repo.findAll();   	
         return new ResponseEntity<List<Image>>(images, HttpStatus.OK);
@@ -68,7 +69,9 @@ public class ImageApiController implements ImageApi {
     }
 
 	@Override
-	public ResponseEntity<Void> uploadDects(Long id, MultipartFile file) {
+	public ResponseEntity<Void> uploadImage(Long id, MultipartFile file) {
+		System.err.println("Appel upload !");
+		System.err.println("Nom original du fichier : " + file.getOriginalFilename() + " nom de variable : " + file.getName());
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
