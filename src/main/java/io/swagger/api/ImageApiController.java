@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import io.swagger.annotations.ApiParam;
 import io.swagger.model.Image;
@@ -24,14 +25,12 @@ public class ImageApiController implements ImageApi {
 	private ImageRepository repo;
 
     public ResponseEntity<Image> createImageUsingPOST(@ApiParam(value = "image" ,required=true )  @Valid @RequestBody Image image) {
-        // do some magic!
     	image.setId(null);
     	image = repo.save(image);
         return new ResponseEntity<Image>(image, HttpStatus.OK);
     }
 
     public ResponseEntity<Void> deleteImageUsingDELETE(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
-        // do some magic!
     	if(repo.exists(id))
     	{
     	repo.delete(id);
@@ -48,7 +47,6 @@ public class ImageApiController implements ImageApi {
     }
 
     public ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
-        // do some magic!
     	Image image = new Image();
     	image = repo.findOne(id);
     	if(image == null)
@@ -58,7 +56,6 @@ public class ImageApiController implements ImageApi {
     }
 
     public ResponseEntity<Image> updateImageUsingPUT(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id, @Valid @RequestBody Image image) {
-        // do some magic!
     	Image img = repo.findOne(id);
     	if(img == null)
     		return new ResponseEntity<Image>(HttpStatus.NOT_FOUND);
@@ -69,5 +66,10 @@ public class ImageApiController implements ImageApi {
 	        return new ResponseEntity<Image>(img, HttpStatus.OK);
     	}
     }
+
+	@Override
+	public ResponseEntity<Void> uploadDects(Long id, MultipartFile file) {
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
 
 }
