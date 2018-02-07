@@ -17,8 +17,8 @@ public class SwaggerDocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("gestionProjet9Game API")
-            .description("gestionProjet9Game API documentation")
+            .title("ImagesAPI")
+            .description("ImagesAPI documentation")
             .license("")
             .licenseUrl("http://unlicense.org")
             .termsOfServiceUrl("")

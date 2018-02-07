@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.Valid;
 
@@ -19,6 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class Image   {
 	@JsonProperty("id")
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id = null;
 
@@ -31,9 +34,9 @@ public class Image   {
 	private String date = null;
 
 
-	@JsonProperty("nomimage")
-	@Column(name="nom_image")
-	private String nomimage = null;
+	@JsonProperty("titre")
+	@Column(name="titre")
+	private String titre = null;
 
 	@JsonProperty("idUtilisateur")
 	@Column(name="id_utilisateur")
@@ -100,24 +103,24 @@ public class Image   {
 		this.id = id;
 	}
 
-	public Image nomimage(String nomimage) {
-		this.nomimage = nomimage;
+	public Image titre(String titre) {
+		this.titre = titre;
 		return this;
 	}
 
 	/**
-	 * Get nomimage
-	 * @return nomimage
+	 * Get titre
+	 * @return titre
 	 **/
 	@ApiModelProperty(value = "")
 
 
-	public String getNomimage() {
-		return nomimage;
+	public String getTitre() {
+		return titre;
 	}
 
-	public void setNomimage(String nomimage) {
-		this.nomimage = nomimage;
+	public void setTitre(String titre) {
+		this.titre = titre;
 	}
 
 	public Image idutilisateur(Long id_utilisateur) {
@@ -153,13 +156,13 @@ public class Image   {
 		return Objects.equals(this.chemin, image.chemin) &&
 				Objects.equals(this.date, image.date) &&
 				Objects.equals(this.id, image.id) &&
-				Objects.equals(this.nomimage, image.nomimage) &&
+				Objects.equals(this.titre, image.titre) &&
 				Objects.equals(this.id_utilisateur, image.id_utilisateur);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(chemin, date, id, nomimage, id_utilisateur);
+		return Objects.hash(chemin, date, id, titre, id_utilisateur);
 	}
 
 	@Override
@@ -170,7 +173,7 @@ public class Image   {
 		sb.append("    chemin: ").append(toIndentedString(chemin)).append("\n");
 		sb.append("    date: ").append(toIndentedString(date)).append("\n");
 		sb.append("    id: ").append(toIndentedString(id)).append("\n");
-		sb.append("    nomimage: ").append(toIndentedString(nomimage)).append("\n");
+		sb.append("    titre: ").append(toIndentedString(titre)).append("\n");
 		sb.append("    idutilisateur: ").append(toIndentedString(id_utilisateur)).append("\n");
 		sb.append("}");
 		return sb.toString();
