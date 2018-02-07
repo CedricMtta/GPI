@@ -7,7 +7,7 @@
     
     environment {
 		// Définition du path qui sera utilisé dans tomcat et la doc 
-		def deployPath = 'images'
+		def deployPath = 'GPImages'
 
 		// obligatoire car il est impossible de resoudre workspace dans l'appel
 		def warPath = "${workspace}/target"
@@ -65,7 +65,7 @@
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'tomcatdeploy', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 					
 					// redéploiement en utilisant les identifiants et les paramètres de conf
-					sh 'curl -T "${warPath}/images.war" "http://$USERNAME:$PASSWORD@${deployUrl}/manager/text/deploy?path=/${deployPath}&update=true"'
+					sh 'curl -T "${warPath}/GPImages.war" "http://$USERNAME:$PASSWORD@${deployUrl}/manager/text/deploy?path=/${deployPath}&update=true"'
 					
                 }
             }
