@@ -46,9 +46,17 @@
                 // compilation et archivage de l'artefact
                 sh "mvn package -DskipTests=true"
             }
+
             post {
                 success{
                         archiveArtifacts artifacts: 'target/*.war'
+                }
+            }
+        }
+        stage('Analyse SonarQube') {
+            steps{
+                withSonarQubeEnv('sonarqube') {
+                    sh "mvn sonar:sonar"
                 }
             }
         }
