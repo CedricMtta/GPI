@@ -25,9 +25,8 @@ public class Image   {
 	@Column(name="id")
 	private Long id = null;
 
-	@JsonProperty("chemin")
-	@Column(name="chemin")
-	private String chemin = null;
+	@Column(name="file")
+	private byte[] file = null;
 
 	@JsonProperty("date")
 	@Column(name="date")
@@ -42,8 +41,8 @@ public class Image   {
 	@Column(name="id_utilisateur")
 	private Long id_utilisateur = null;
 
-	public Image chemin(String chemin) {
-		this.chemin = chemin;
+	public Image file(byte[] file) {
+		this.file = file;
 		return this;
 	}
 
@@ -54,12 +53,12 @@ public class Image   {
 	@ApiModelProperty(value = "")
 
 
-	public String getChemin() {
-		return chemin;
+	public byte[] getFile() {
+		return this.file;
 	}
 
-	public void setChemin(String chemin) {
-		this.chemin = chemin;
+	public void setFile(byte[] file) {
+		this.file = file;
 	}
 
 	public Image date(String date) {
@@ -153,7 +152,7 @@ public class Image   {
 			return false;
 		}
 		Image image = (Image) o;
-		return Objects.equals(this.chemin, image.chemin) &&
+		return Objects.equals(this.file, image.file) &&
 				Objects.equals(this.date, image.date) &&
 				Objects.equals(this.id, image.id) &&
 				Objects.equals(this.titre, image.titre) &&
@@ -162,7 +161,7 @@ public class Image   {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(chemin, date, id, titre, id_utilisateur);
+		return Objects.hash(file, date, id, titre, id_utilisateur);
 	}
 
 	@Override
@@ -170,7 +169,7 @@ public class Image   {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Image {\n");
 
-		sb.append("    chemin: ").append(toIndentedString(chemin)).append("\n");
+		sb.append("    file: ").append(toIndentedString(file)).append("\n");
 		sb.append("    date: ").append(toIndentedString(date)).append("\n");
 		sb.append("    id: ").append(toIndentedString(id)).append("\n");
 		sb.append("    titre: ").append(toIndentedString(titre)).append("\n");

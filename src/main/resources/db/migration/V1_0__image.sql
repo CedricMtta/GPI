@@ -1,6 +1,6 @@
 CREATE TABLE image (
 	id INTEGER AUTO_INCREMENT,
-	chemin VARCHAR(255),
+	file BLOB,
 	titre VARCHAR(255),
 	id_utilisateur INTEGER,
 	date DATE,
