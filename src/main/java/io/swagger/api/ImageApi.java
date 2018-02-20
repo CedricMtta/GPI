@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -102,7 +103,22 @@ public interface ImageApi {
 			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
 			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
 	
-	@RequestMapping(value = "/api/images{id}/uploadImage",
+	@RequestMapping(value = "/api/images/{id}/uploadImage",
+			consumes = { "multipart/form-data" },
+			produces = { "application/json" },
 			method = RequestMethod.POST)
 	ResponseEntity<Void> uploadImage(@PathVariable("id") Long id,  @RequestParam("file") MultipartFile file);
+	
+	@ApiOperation(value = "downloadImage", notes = "", response = Void.class, tags={ "image-resource", })
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK", response = Void.class),
+			@ApiResponse(code = 201, message = "Created", response = Void.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
+	
+	@RequestMapping(value = "/api/images/{id}/getImage",
+			produces = { "image/jpeg" },
+			method = RequestMethod.GET)
+	ResponseEntity<byte[]> downloadImage(@PathVariable("id") Long id);
 }

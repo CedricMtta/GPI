@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.hibernate.Hibernate;
 
 import io.swagger.annotations.ApiParam;
 import io.swagger.model.Image;
@@ -72,7 +74,32 @@ public class ImageApiController implements ImageApi {
 	public ResponseEntity<Void> uploadImage(Long id, MultipartFile file) {
 		System.err.println("Appel upload !");
 		System.err.println("Nom original du fichier : " + file.getOriginalFilename() + " nom de variable : " + file.getName());
+		Image img = repo.findOne(id);
+		if(img == null)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		else
+		{
+			try {
+				img.setFile(file.getBytes());
+				System.err.println(img);
+				img = repo.save(img);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<byte[]> downloadImage(Long id) {
+		Image img = repo.findOne(id);
+		if(img == null)
+			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
+		else
+		{
+			return new ResponseEntity<byte[]>(img.getFile(), HttpStatus.OK);
+		}
 	}
 
 }
