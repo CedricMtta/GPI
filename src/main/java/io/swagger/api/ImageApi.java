@@ -5,10 +5,10 @@
  */
 package io.swagger.api;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -63,7 +63,7 @@ public interface ImageApi {
 	@RequestMapping(value = "/api/images",
 	produces = { "application/json" },
 	method = RequestMethod.GET)
-	ResponseEntity<List<Image>> getAllImagesUsingGET();
+	ResponseEntity<Page<Image>> getAllImagesUsingGET(Pageable pageable);
 
 
 	@ApiOperation(value = "getImage", notes = "", response = Image.class, tags={ "image-resource", })

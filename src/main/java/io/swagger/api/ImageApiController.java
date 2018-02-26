@@ -2,11 +2,12 @@ package io.swagger.api;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,11 +42,10 @@ public class ImageApiController implements ImageApi {
     		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     }
 
-    public ResponseEntity<List<Image>> getAllImagesUsingGET() {
+    public ResponseEntity<Page<Image>> getAllImagesUsingGET(Pageable pageable) {
     	System.out.println("Appel getAll");
-    	List<Image> images = new ArrayList<Image>();    	
-    	images = repo.findAll();   	
-        return new ResponseEntity<List<Image>>(images, HttpStatus.OK);
+    	Page<Image> images = repo.findAll(pageable);   	
+        return new ResponseEntity<Page<Image>>(images, HttpStatus.OK);
     }
 
     public ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
@@ -64,7 +64,7 @@ public class ImageApiController implements ImageApi {
     	else
 	    	{
     		image.setId(img.getId());
-	    	img = repo.saveAndFlush(image);
+	    	img = repo.save(image);
 	        return new ResponseEntity<Image>(img, HttpStatus.OK);
     	}
     }
