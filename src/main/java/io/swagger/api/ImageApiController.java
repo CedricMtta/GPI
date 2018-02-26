@@ -1,7 +1,6 @@
 package io.swagger.api;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -43,7 +42,6 @@ public class ImageApiController implements ImageApi {
     }
 
     public ResponseEntity<Page<Image>> getAllImagesUsingGET(Pageable pageable) {
-    	System.out.println("Appel getAll");
     	Page<Image> images = repo.findAll(pageable);   	
         return new ResponseEntity<Page<Image>>(images, HttpStatus.OK);
     }
@@ -71,34 +69,29 @@ public class ImageApiController implements ImageApi {
 
 	@Override
 	public ResponseEntity<Void> uploadImage(Long id, MultipartFile file) {
-		System.err.println("Appel upload !");
-		System.err.println("Nom original du fichier : " + file.getOriginalFilename() + " nom de variable : " + file.getName());
 		Image img = repo.findOne(id);
-		if(img == null)
-			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-		else
+		if(img != null)
 		{
 			try {
 				img.setFile(file.getBytes());
-				System.err.println(img);
 				img = repo.save(img);
+				return new ResponseEntity<Void>(HttpStatus.OK);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		else
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 
 	@Override
 	public ResponseEntity<byte[]> downloadImage(Long id) {
 		Image img = repo.findOne(id);
-		if(img == null)
-			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
-		else
-		{
+		if(img != null && img.getFile() != null)
 			return new ResponseEntity<byte[]>(img.getFile(), HttpStatus.OK);
-		}
+		else
+			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
 	}
 
 }
