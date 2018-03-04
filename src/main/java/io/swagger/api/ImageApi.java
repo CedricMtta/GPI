@@ -130,7 +130,7 @@ public interface ImageApi {
 			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
 			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
 
-	@RequestMapping(value = "/api/images/user/{idUtil}",
+	@RequestMapping(value = "/api/images/user",
 	produces = { "application/json" },
 	method = RequestMethod.GET)
 	ResponseEntity<List<Image>> findByUser(@PathVariable("idUtil") Long idUtil);
