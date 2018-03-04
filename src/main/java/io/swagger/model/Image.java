@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Image
+ * Class used to represent an image
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-01-16T20:34:37.063Z")
 @Entity
@@ -41,14 +41,20 @@ public class Image   {
 	@Column(name="id_utilisateur")
 	private Long idUtilisateur = null;
 
+	/**
+	 * Update the bytes table and return the image 
+	 * 
+	 * @param file bytes table which represents the image
+	 * @return the image
+	 */
 	public Image file(byte[] file) {
 		this.file = file;
 		return this;
 	}
 
 	/**
-	 * Get chemin
-	 * @return chemin
+	 * Return the bytes table which represents the image
+	 * @return the bytes table which represents the image
 	 **/
 	@ApiModelProperty(value = "")
 
@@ -57,18 +63,27 @@ public class Image   {
 		return this.file;
 	}
 
+	/**
+	 * Set the bytes table which represents the image
+	 * @param file the bytes table which represents the image
+	 */
 	public void setFile(byte[] file) {
 		this.file = file;
 	}
 
+	/**
+	 * Set the date of the image and return the image
+	 * @param date the date to associate to the image
+	 * @return the image
+	 */
 	public Image date(String date) {
 		this.date = date;
 		return this;
 	}
 
 	/**
-	 * Get date
-	 * @return date
+	 * Get the date associated to the image
+	 * @return date the date associated to the image
 	 **/
 	@ApiModelProperty(value = "")
 
@@ -78,18 +93,27 @@ public class Image   {
 		return date;
 	}
 
+	/**
+	 * Set the date of the image
+	 * @param date the date to associate to the image
+	 */
 	public void setDate(String date) {
 		this.date = date;
 	}
 
+	/**
+	 * Set the id of the image and return the image
+	 * @param id the id to associate to the image
+	 * @return the image
+	 */
 	public Image id(Long id) {
 		this.id = id;
 		return this;
 	}
 
 	/**
-	 * Get id
-	 * @return id
+	 * Return the id of the image
+	 * @return the id associated to the image
 	 **/
 	@ApiModelProperty(value = "")
 
@@ -98,18 +122,27 @@ public class Image   {
 		return id;
 	}
 
+	/**
+	 * Set the id of the image
+	 * @param id the id to associate to the image
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	/**
+	 * Set the title of the image and return the image
+	 * @param titre the title to associate to the image
+	 * @return the image
+	 */
 	public Image titre(String titre) {
 		this.titre = titre;
 		return this;
 	}
 
 	/**
-	 * Get titre
-	 * @return titre
+	 * Return the title of the image
+	 * @return titre the title associated to the image
 	 **/
 	@ApiModelProperty(value = "")
 
@@ -118,18 +151,27 @@ public class Image   {
 		return titre;
 	}
 
+	/**
+	 * Set the title of the image
+	 * @param titre the title to associate to the image
+	 */
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
 
+	/**
+	 * Set the id of the the user who post the image and return the image
+	 * @param id_utilisateur the id of the user who post the image
+	 * @return the image
+	 */
 	public Image idutilisateur(Long id_utilisateur) {
 		this.idUtilisateur = id_utilisateur;
 		return this;
 	}
 
 	/**
-	 * Get idutilisateur
-	 * @return idutilisateur
+	 * Return the id of the user who post the image
+	 * @return idutilisateur the id of the user who post the image
 	 **/
 	@ApiModelProperty(value = "")
 
@@ -138,11 +180,19 @@ public class Image   {
 		return idUtilisateur;
 	}
 
+	/**
+	 * Set the id of the user who post the image
+	 * @param id_utilisateur the id of the user who post the image
+	 */
 	public void setIdUtilisateur(Long id_utilisateur) {
 		this.idUtilisateur = id_utilisateur;
 	}
 
-
+	/**
+	 * Compare the image with the object in parameter
+	 * Return true if the object is an image and all fields are equals
+	 * @param o the object to compare
+	 */
 	@Override
 	public boolean equals(java.lang.Object o) {
 		if (this == o) {
@@ -159,11 +209,20 @@ public class Image   {
 				Objects.equals(this.idUtilisateur, image.idUtilisateur);
 	}
 
+	/**
+	 * Return the hash code
+	 * {@inheritDoc}
+	 * @return the hash code of the image
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(file, date, id, titre, idUtilisateur);
 	}
 
+	/**
+	 * Return a string which represents the image
+	 * @return a string which represents the image
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
