@@ -39,7 +39,7 @@ public class Image   {
 
 	@JsonProperty("idUtilisateur")
 	@Column(name="id_utilisateur")
-	private Long id_utilisateur = null;
+	private Long idUtilisateur = null;
 
 	public Image file(byte[] file) {
 		this.file = file;
@@ -123,7 +123,7 @@ public class Image   {
 	}
 
 	public Image idutilisateur(Long id_utilisateur) {
-		this.id_utilisateur = id_utilisateur;
+		this.idUtilisateur = id_utilisateur;
 		return this;
 	}
 
@@ -135,11 +135,11 @@ public class Image   {
 
 
 	public Long getIdUtilisateur() {
-		return id_utilisateur;
+		return idUtilisateur;
 	}
 
 	public void setIdUtilisateur(Long id_utilisateur) {
-		this.id_utilisateur = id_utilisateur;
+		this.idUtilisateur = id_utilisateur;
 	}
 
 
@@ -156,12 +156,12 @@ public class Image   {
 				Objects.equals(this.date, image.date) &&
 				Objects.equals(this.id, image.id) &&
 				Objects.equals(this.titre, image.titre) &&
-				Objects.equals(this.id_utilisateur, image.id_utilisateur);
+				Objects.equals(this.idUtilisateur, image.idUtilisateur);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(file, date, id, titre, id_utilisateur);
+		return Objects.hash(file, date, id, titre, idUtilisateur);
 	}
 
 	@Override
@@ -173,7 +173,7 @@ public class Image   {
 		sb.append("    date: ").append(toIndentedString(date)).append("\n");
 		sb.append("    id: ").append(toIndentedString(id)).append("\n");
 		sb.append("    titre: ").append(toIndentedString(titre)).append("\n");
-		sb.append("    idutilisateur: ").append(toIndentedString(id_utilisateur)).append("\n");
+		sb.append("    idutilisateur: ").append(toIndentedString(idUtilisateur)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

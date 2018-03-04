@@ -5,6 +5,8 @@
  */
 package io.swagger.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.data.domain.Page;
@@ -63,7 +65,7 @@ public interface ImageApi {
 	@RequestMapping(value = "/api/images",
 	produces = { "application/json" },
 	method = RequestMethod.GET)
-	ResponseEntity<Page<Image>> getAllImagesUsingGET(Pageable pageable);
+	ResponseEntity<List<Image>> getAllImagesUsingGET(@ApiParam(value = "pageable", required = false) Pageable pageable);
 
 
 	@ApiOperation(value = "getImage", notes = "", response = Image.class, tags={ "image-resource", })
@@ -120,4 +122,16 @@ public interface ImageApi {
 			produces = { "image/jpeg" },
 			method = RequestMethod.GET)
 	ResponseEntity<byte[]> downloadImage(@PathVariable("id") Long id);
+	
+	@ApiOperation(value = "findByUser", notes = "", response = Image.class, tags={ "image-resource", })
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK", response = Image.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Void.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Void.class) })
+
+	@RequestMapping(value = "/api/images/user/{id}",
+	produces = { "application/json" },
+	method = RequestMethod.GET)
+	ResponseEntity<List<Image>> findByUser(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id);
 }

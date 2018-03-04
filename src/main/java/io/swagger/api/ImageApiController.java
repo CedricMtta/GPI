@@ -1,6 +1,7 @@
 package io.swagger.api;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -41,9 +42,9 @@ public class ImageApiController implements ImageApi {
     		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     }
 
-    public ResponseEntity<Page<Image>> getAllImagesUsingGET(Pageable pageable) {
+    public ResponseEntity<List<Image>> getAllImagesUsingGET(Pageable pageable) {
     	Page<Image> images = repo.findAll(pageable);   	
-        return new ResponseEntity<Page<Image>>(images, HttpStatus.OK);
+        return new ResponseEntity<List<Image>>(images.getContent(), HttpStatus.OK);
     }
 
     public ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
@@ -92,6 +93,11 @@ public class ImageApiController implements ImageApi {
 			return new ResponseEntity<byte[]>(img.getFile(), HttpStatus.OK);
 		else
 			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
+	}
+
+	@Override
+	public ResponseEntity<List<Image>> findByUser(Long id) {
+		return new ResponseEntity<List<Image>>(repo.findByIdUtilisateur(id), HttpStatus.OK);
 	}
 
 }
