@@ -96,8 +96,8 @@ public class ImageApiController implements ImageApi {
 	}
 
 	@Override
-	public ResponseEntity<List<Image>> findByUser(Long id) {
-		return new ResponseEntity<List<Image>>(repo.findByIdUtilisateur(id), HttpStatus.OK);
+	public ResponseEntity<List<Image>> findByUser(Long idUtil) {
+		return new ResponseEntity<List<Image>>(repo.findByIdUtilisateur(idUtil), HttpStatus.OK);
 	}
 
 }
