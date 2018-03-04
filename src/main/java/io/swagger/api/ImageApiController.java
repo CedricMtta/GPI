@@ -42,9 +42,9 @@ public class ImageApiController implements ImageApi {
     		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     }
 
-    public ResponseEntity<List<Image>> getAllImagesUsingGET(Pageable pageable) {
+    public ResponseEntity<Page<Image>> getAllImagesUsingGET(Pageable pageable) {
     	Page<Image> images = repo.findAll(pageable);   	
-        return new ResponseEntity<List<Image>>(images.getContent(), HttpStatus.OK);
+        return new ResponseEntity<Page<Image>>(images, HttpStatus.OK);
     }
 
     public ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
@@ -96,8 +96,8 @@ public class ImageApiController implements ImageApi {
 	}
 
 	@Override
-	public ResponseEntity<List<Image>> findByUser(Long idUtil) {
-		return new ResponseEntity<List<Image>>(repo.findByIdUtilisateur(idUtil), HttpStatus.OK);
+	public ResponseEntity<Page<Image>> findByUser(Long idUtil, Pageable pageable) {
+		return new ResponseEntity<Page<Image>>(repo.findByIdUtilisateur(idUtil, pageable), HttpStatus.OK);
 	}
 
 }

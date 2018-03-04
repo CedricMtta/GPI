@@ -65,7 +65,7 @@ public interface ImageApi {
 	@RequestMapping(value = "/api/images",
 	produces = { "application/json" },
 	method = RequestMethod.GET)
-	ResponseEntity<List<Image>> getAllImagesUsingGET(@ApiParam(value = "pageable", required = false) Pageable pageable);
+	ResponseEntity<Page<Image>> getAllImagesUsingGET(@ApiParam(value = "pageable", required = false) Pageable pageable);
 
 
 	@ApiOperation(value = "getImage", notes = "", response = Image.class, tags={ "image-resource", })
@@ -133,5 +133,5 @@ public interface ImageApi {
 	@RequestMapping(value = "/api/images/user",
 	produces = { "application/json" },
 	method = RequestMethod.GET)
-	ResponseEntity<List<Image>> findByUser(@PathVariable("idUtil") Long idUtil);
+	ResponseEntity<Page<Image>> findByUser(@PathVariable("idUtil") Long idUtil, Pageable pageable);
 }
