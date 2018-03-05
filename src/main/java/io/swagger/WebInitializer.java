@@ -7,6 +7,12 @@ package io.swagger;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+
+/**
+ * 
+ * Class used to indicate where is main for web deployment
+ *
+ */
 public class WebInitializer extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(final SpringApplicationBuilder application) {

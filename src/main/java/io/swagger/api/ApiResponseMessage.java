@@ -4,6 +4,14 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-01-16T20:34:37.063Z")
 
+/**
+ * 
+ * Response message from the api, associate :
+ * -a code
+ * -a message
+ * -a type
+ *
+ */
 @javax.xml.bind.annotation.XmlRootElement
 public class ApiResponseMessage {
     public static final int ERROR = 1;

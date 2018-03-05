@@ -6,7 +6,11 @@ import com.fasterxml.jackson.databind.util.ISO8601Utils;
 import java.text.FieldPosition;
 import java.util.Date;
 
-
+/**
+ * Custom format for time.
+ * Same as ISO8601DateFormat but serializing milliseconds 
+ *
+ */
 @SuppressWarnings("serial")
 public class RFC3339DateFormat extends ISO8601DateFormat {
 

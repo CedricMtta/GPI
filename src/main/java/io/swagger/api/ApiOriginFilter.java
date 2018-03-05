@@ -13,6 +13,11 @@ import org.springframework.stereotype.Component;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-01-16T20:34:37.063Z")
 
+/**
+ * 
+ * Filter for requests
+ *
+ */
 @Component
 public class ApiOriginFilter implements javax.servlet.Filter {
     @Override

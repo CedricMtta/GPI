@@ -26,6 +26,11 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.model.Image;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-01-16T20:34:37.063Z")
 
+/**
+ * 
+ * Interface for api and spring annotations
+ *
+ */
 public interface ImageApi {
 
 	@ApiOperation(value = "createImage", notes = "", response = Image.class, tags={ "image-resource", })
