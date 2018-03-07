@@ -48,7 +48,7 @@ public class ImageApiController implements ImageApi {
     }
 
     public ResponseEntity<Image> getImageUsingGET(@ApiParam(value = "id",required=true ) @PathVariable("id") Long id) {
-    	Image image = new Image();
+    	Image image = null;
     	image = repo.findOne(id);
     	if(image == null)
     		return new ResponseEntity<Image>(HttpStatus.NOT_FOUND);
@@ -75,7 +75,7 @@ public class ImageApiController implements ImageApi {
 		{
 			try {
 				img.setFile(file.getBytes());
-				img = repo.save(img);
+				repo.save(img);
 				return new ResponseEntity<Void>(HttpStatus.OK);
 			} catch (IOException e) {
 				e.printStackTrace();

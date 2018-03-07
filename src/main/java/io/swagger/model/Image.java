@@ -202,7 +202,7 @@ public class Image   {
 			return false;
 		}
 		Image image = (Image) o;
-		return Objects.equals(this.file, image.file) &&
+		return this.file == image.file &&
 				Objects.equals(this.date, image.date) &&
 				Objects.equals(this.id, image.id) &&
 				Objects.equals(this.titre, image.titre) &&
