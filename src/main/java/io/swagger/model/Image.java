@@ -48,7 +48,7 @@ public class Image   {
 	 * @return the image
 	 */
 	public Image file(byte[] file) {
-		this.file = file;
+		this.file = file.clone();
 		return this;
 	}
 
@@ -68,7 +68,7 @@ public class Image   {
 	 * @param file the bytes table which represents the image
 	 */
 	public void setFile(byte[] file) {
-		this.file = file;
+		this.file = file.clone();
 	}
 
 	/**
