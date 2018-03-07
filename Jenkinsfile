@@ -17,8 +17,8 @@
     
     	stage('Env') {
 			steps{
-			    // récupération du fichier de configuration du tcat1, stocké dans Jenkins
-				configFileProvider([configFile(fileId:'tomcat1-conf', variable: 'tomcatConfFile')]) {
+			    // récupération du fichier de configuration du tcat1 omcat1-conf, stocké dans Jenkins
+				configFileProvider([configFile(fileId:'tcat3-conf', variable: 'tomcatConfFile')]) {
 					script{
 						// On assigne la valeur du fichier de conf à une variable d'environnement du Job
 						def tomcatConf = readJSON(text: readFile(file: tomcatConfFile))
