@@ -15,6 +15,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * 
+ * Main of the application
+ *
+ */
 @EnableSwagger2
 @ComponentScan
 @EnableJpaRepositories
