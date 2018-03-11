@@ -22,7 +22,8 @@ import io.swagger.repository.ImageRepository;
 /**
  * Implementation of methods from ImageApi.
  * Describe behavior of requests.
- *
+ * 
+ * TODO : utiliser un logger *
  */
 @RestController
 public class ImageApiController implements ImageApi {
@@ -108,7 +109,6 @@ public class ImageApiController implements ImageApi {
 				repo.save(img);
 				return new ResponseEntity<Void>(HttpStatus.OK);
 			} catch (IOException e) {
-				e.printStackTrace();
 				return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}

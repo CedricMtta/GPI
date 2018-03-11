@@ -60,7 +60,9 @@ public class Image   {
 
 
 	public byte[] getFile() {
-		return this.file;
+		if(this.file == null)
+			return null;
+		return this.file.clone();
 	}
 
 	/**
