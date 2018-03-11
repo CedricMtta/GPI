@@ -11,10 +11,7 @@ package io.swagger.api;
  *
  */
 public class ApiException extends Exception{
-    @SuppressWarnings("unused")
-	private int code;
-    public ApiException (int code, String msg) {
+    public ApiException (String msg) {
         super(msg);
-        this.code = code;
     }
 }

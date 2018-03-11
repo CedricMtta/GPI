@@ -228,12 +228,12 @@ public class Image   {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Image {\n");
 
-		sb.append("    file: ").append(toIndentedString(file)).append("\n");
-		sb.append("    date: ").append(toIndentedString(date)).append("\n");
-		sb.append("    id: ").append(toIndentedString(id)).append("\n");
-		sb.append("    titre: ").append(toIndentedString(titre)).append("\n");
-		sb.append("    idutilisateur: ").append(toIndentedString(idUtilisateur)).append("\n");
-		sb.append("}");
+		sb.append("    file: ").append(toIndentedString(file)).append('\n');
+		sb.append("    date: ").append(toIndentedString(date)).append('\n');
+		sb.append("    id: ").append(toIndentedString(id)).append('\n');
+		sb.append("    titre: ").append(toIndentedString(titre)).append('\n');
+		sb.append("    idutilisateur: ").append(toIndentedString(idUtilisateur)).append('\n');
+		sb.append('}');
 		return sb.toString();
 	}
 

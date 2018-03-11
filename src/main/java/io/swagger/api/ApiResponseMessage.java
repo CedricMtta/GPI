@@ -64,7 +64,7 @@ public class ApiResponseMessage {
         return type;
     }
 
-    public void setType(String type) {
+    public final void setType(String type) {
         this.type = type;
     }
 
