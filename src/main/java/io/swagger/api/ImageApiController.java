@@ -124,8 +124,9 @@ public class ImageApiController implements ImageApi {
 	@Override
 	public ResponseEntity<byte[]> downloadImage(Long id) {
 		Image img = repo.findOne(id);
-		if(img != null && img.getFile() != null)
-			return new ResponseEntity<byte[]>(img.getFile(), HttpStatus.OK);
+		byte[] imgFile = img.getFile();
+		if(img != null && imgFile != null)
+			return new ResponseEntity<byte[]>(imgFile, HttpStatus.OK);
 		else
 			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
 	}
