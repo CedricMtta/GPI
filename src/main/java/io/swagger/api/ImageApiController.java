@@ -43,7 +43,7 @@ public class ImageApiController implements ImageApi {
 			@ApiParam(value = "image", required = true) @Valid @RequestBody Image image) {
 		image.setId(null);
 		image = repo.save(image);
-		return new ResponseEntity<Image>(image, HttpStatus.OK);
+		return new ResponseEntity<Image>(image, HttpStatus.CREATED);
 	}
 
 	/**
