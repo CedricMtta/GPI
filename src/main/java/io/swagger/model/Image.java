@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -26,19 +27,23 @@ public class Image   {
 	private Long id = null;
 
 	@Column(name="file")
+	@NotNull
 	private byte[] file = null;
 
 	@JsonProperty("date")
 	@Column(name="date")
+	@NotNull
 	private String date = null;
 
 
 	@JsonProperty("titre")
 	@Column(name="titre")
+	@NotNull
 	private String titre = null;
 
 	@JsonProperty("idUtilisateur")
 	@Column(name="id_utilisateur")
+	@NotNull
 	private Long idUtilisateur = null;
 
 	/**
